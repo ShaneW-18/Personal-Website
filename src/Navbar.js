@@ -1,4 +1,6 @@
+import { Button } from "bootstrap"
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import Resume from "./Pics/Resume.pdf"
 
 export default function Navbar() {
   return (
@@ -7,9 +9,11 @@ export default function Navbar() {
         Shane Wiles
       </Link>
       <ul>
-        <CustomLink to="/about">about</CustomLink>
+        <CustomLink to="/about" >About</CustomLink>
         <CustomLink to="/experience">Experience</CustomLink>
         <CustomLink to="/contact">Contact</CustomLink>
+        <Link target={"_blank"} to={Resume} className="resume"> Resume</Link>
+       
       </ul>
     </nav>
   )
