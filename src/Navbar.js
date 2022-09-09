@@ -5,7 +5,7 @@ import Resume from "./Pics/Resume.pdf"
 export default function Navbar() {
   return (
     <nav className="nav">
-      <Link to="/">
+      <Link to="/" className={"site-title "}>
         Shane Wiles
       </Link>
       <ul>
