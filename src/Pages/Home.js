@@ -1,4 +1,5 @@
 import shane from "../Pics/s.webp"
+
 export default function Home(){
     return <div className="page_Wrapper">
                 <div className="content">
