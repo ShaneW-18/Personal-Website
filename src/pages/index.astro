@@ -2,10 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Resume from '../../public/Resume.pdf';
+
 ---
 
 <Layout title="Shane Wiles">
+	
 	<main>
+		<div class='wrapper'>
 		<h1><span class="text-gradient">Shane Wiles</span></h1>
 		<div class="center">
 			<img src="../../public/s.webp"/>
@@ -27,11 +30,16 @@ import Resume from '../../public/Resume.pdf';
 				href={Resume}
 				title="Resume"
 			/>
+	
 			<Card
 				href="mailto: shane@swiles.tech"
 				title="Hire Me!"
 			/>
 		</ul>
+		<img src="../../public/c.png" width="250" height="200"/>
+		<img src="../../public/docker.png" width="200" height="200"/>
+		<img src="../../public/java.png" width="200" height="200"/>
+		<img src="../../public/react.png" width="200" height="200"/>
 		<section>
 			<div class="tile bottom-right"></div>
 			<div class="tile bottom-right"></div>
@@ -40,8 +48,28 @@ import Resume from '../../public/Resume.pdf';
 			<div class="tile"></div>
 			<div class="tile"></div>
 		</section>
+	
+	</div>
 	</main>
+	<script>
+		let elementsArray = document.querySelectorAll(".tile");
+		console.log(elementsArray);
+		window.addEventListener('scroll', fadeIn ); 
+		function fadeIn() {
+    	for (var i = 0; i < elementsArray.length; i++) {
+        	var elem = elementsArray[i]
+        	var distInView = elem.getBoundingClientRect().top - window.innerHeight + 20;
+        	if (distInView < 0) {
+            	elem.classList.add("inView");
+        	} else {
+            	elem.classList.remove("inView");
+        }
+    }
+}
+fadeIn()
+	</script>
 </Layout>
+
 <style>
 	:root {
 		--astro-gradient: linear-gradient(0deg, #7918d4,#3500d3 );
@@ -141,7 +169,7 @@ import Resume from '../../public/Resume.pdf';
 	.tile {
     height:400px;
     margin-top:40px;
-    background:grey;
+    background:saddlebrown;
     -webkit-transform: translateY(50px) rotate(-5deg) translateZ(0);
     transform: translateY(50px) rotate(-5deg) translateZ(0);
     -webkit-transition-delay: .3s;
