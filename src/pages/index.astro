@@ -8,7 +8,7 @@ import Resume from '../../public/Resume.pdf';
 <Layout title="Shane Wiles">
 	
 	<main>
-		<div class='wrapper'>
+		<div class='animated fadeInLeft'>
 		<h1><span class="text-gradient">Shane Wiles</span></h1>
 		<div class="center">
 			<img src="../../public/s.webp"/>
@@ -36,18 +36,24 @@ import Resume from '../../public/Resume.pdf';
 				title="Hire Me!"
 			/>
 		</ul>
-		<img src="../../public/c.png" width="250" height="200"/>
-		<img src="../../public/docker.png" width="200" height="200"/>
-		<img src="../../public/java.png" width="200" height="200"/>
-		<img src="../../public/react.png" width="200" height="200"/>
-		<section>
-			<div class="tile bottom-right"></div>
-			<div class="tile bottom-right"></div>
-			<div class="tile bottom-right"></div>
-			<div class="tile"></div>
-			<div class="tile"></div>
-			<div class="tile"></div>
-		</section>
+		
+		<div class="imgs">
+			<img src="../../public/c.png" width="170" height="140"/>
+			<img src="../../public/docker.png" width="170" height="140"/>
+			<img src="../../public/java.png" width="170" height="140"/>
+			<img src="../../public/react.png" width="160" height="140"/>
+		</div>
+		<div class="sec">
+			<section>
+				<div class="tile bottom-right"></div>
+				<div class="tile bottom-right"></div>
+				<div class="tile bottom-right"></div>
+				<div class="tile"></div>
+				<div class="tile"></div>
+				<div class="tile"></div>
+			</section>
+		</div>
+	
 	
 	</div>
 	</main>
@@ -74,7 +80,19 @@ fadeIn()
 	:root {
 		--astro-gradient: linear-gradient(0deg, #7918d4,#3500d3 );
 	}
-
+	.sec{
+		
+	}
+	.imgs{
+		
+		
+	}
+	.center{
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+  		width: 50%;
+	}
 	h1 {
 		margin: 3;
        	padding: 3;
@@ -100,14 +118,45 @@ fadeIn()
   		background-color: #0a0129;
 	}	
 
-	.center{
-
-  animation: fadeIn 5s; 
-		display: block;
-  		margin-left: auto;
-  		margin-right: auto;
-  		width: 50%;
-	}
+	.animated {
+            background-image: url(/css/images/logo.png);
+            background-repeat: no-repeat;
+            background-position: left top;
+            padding-top:95px;
+            margin-bottom:60px;
+            -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+         }
+         
+         @-webkit-keyframes fadeInLeft {
+            0% {
+               opacity: 0;
+               -webkit-transform: translateX(-20px);
+            }
+            100% {
+               opacity: 1;
+               -webkit-transform: translateX(0);
+            }
+         }
+         
+         @keyframes fadeInLeft {
+            0% {
+               opacity: 0;
+               transform: translateX(-20px);
+            }
+            100% {
+               opacity: 1;
+               transform: translateX(0);
+            }
+         }
+         
+         .fadeInLeft {
+         -webkit-animation-name: fadeInLeft;
+         animation-name: fadeInLeft;
+         } 
+         animation-name: fadeInDown;
 	@keyframes fadeIn {
   		0% { opacity: 0; }
   		100% { opacity: 1; }
@@ -192,7 +241,8 @@ fadeIn()
     -webkit-transform: translateY(0px) rotate(0deg) translateZ(0);
     transform: translateY(0px) rotate(0deg) translateZ(0);
 }
-section {
+section {	
     padding:20px;
+
 }
 </style>
