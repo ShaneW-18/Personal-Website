@@ -4,6 +4,6 @@ COPY . ./
 RUN npm install
 COPY . ./
 RUN ls -l
-EXPOSE 5000
+EXPOSE 3000
 ENV HOST=0.0.0.0
 CMD [ "npm", "start" ]
