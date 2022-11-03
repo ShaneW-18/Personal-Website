@@ -1,8 +1,14 @@
-FROM node:latest
-WORKDIR /usr/src/app
-COPY . ./
+FROM node:latest as builder
+
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
-COPY . ./
-RUN ls -l
-EXPOSE 3000
-CMD [ "npm", "start" ]
+COPY src src
+COPY public public
+RUN npm run build
+
+EXPOSE 5000
+ENV HOST=0.0.0.0
+
+FROM nginx
+COPY --from=builder dist /usr/share/nginx/html/
